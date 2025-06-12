@@ -200,10 +200,12 @@ app.delete('/api/movies/:id', (req, res) => {
       message: `Invalid id, it should be b/w 0 to ${movies.length - 1}.`,
     })
 
+    const deletedMovie = movies[id] 
+
   movies.splice(id, 1)
   return res
     .status(200)
-    .json({ success: true, message: 'Movie Deleted' })
+    .json({ success: true, message: 'Movie Deleted', deletedMovie })
 })
 
 // Start the server
