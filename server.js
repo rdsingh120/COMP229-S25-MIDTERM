@@ -45,6 +45,22 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 // Array of movie objects
 let movies = [
+  // -------- Two movies from 2000-2009 --------
+  {
+    title: 'The Departed',
+    genre: 'Crime',
+    year: 2006,
+    director: 'Martin Scorsese',
+  },
+  {
+    title: 'Memento',
+    genre: 'Thriller',
+    year: 2000,
+    director: 'Christopher Nolan',
+  },
+
+  // -------------------------------------------
+
   {
     title: 'The Matrix',
     genre: 'Sci-Fi',
@@ -165,8 +181,7 @@ app.put('/api/movies/:id', (req, res) => {
     return res.status(404).json({
       success: false,
       message: `Invalid id, it should be b/w 0 to ${movies.length - 1}.`,
-    }) 
-
+    })
 
   movies[id] = updatedMovie
   return res
@@ -183,7 +198,7 @@ app.delete('/api/movies/:id', (req, res) => {
     return res.status(404).json({
       success: false,
       message: `Invalid id, it should be b/w 0 to ${movies.length - 1}.`,
-    }) 
+    })
 
   movies.splice(id, 1)
   return res
