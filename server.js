@@ -185,7 +185,7 @@ app.put('/api/movies/:id', (req, res) => {
 
   movies[id] = updatedMovie
   return res
-    .status(201)
+    .status(200)
     .json({ success: true, message: 'Movie Updated', data: movies[id] })
 })
 
@@ -203,7 +203,7 @@ app.delete('/api/movies/:id', (req, res) => {
   movies.splice(id, 1)
   return res
     .status(200)
-    .json({ success: true, message: 'Movie Deleted', data: movies })
+    .json({ success: true, message: 'Movie Deleted' })
 })
 
 // Start the server
